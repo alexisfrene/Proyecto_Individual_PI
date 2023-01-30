@@ -1,48 +1,25 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { CardPokemon } from "./CardPokemon";
+export const GetPokemons = () => {
+  let [pokemons, setPokemons] = useState([]);
 
-function Pokemon({ avatar, name }) {
-  return (
-    <figure>
-      <img src={avatar} alt={name} />
-      <figcaption>{name}</figcaption>
-    </figure>
-  );
-}
+  async function getData() {
+    let res = await axios.get("http://localhost:3001/pokemons");
+    const { data } = res;
+    setPokemons((e) => data);
+  }
 
-export default function GetPokemons(props) {
-  const [pokemons, setPokemons] = useState([]);
-
-  
   useEffect(() => {
-    let url = "http://localhost:3001/pokemons";
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        json.forEach((el) =>
-          fetch(el.url)
-            .then((e) => e.json())
-            .then((json) => {
-              let pokemon = {
-                id: json.id,
-                name: json.name,
-                avatar: json.sprites.front_default,
-              };
-              setPokemons((pokemons) => [...pokemons, pokemon]);
-            })
-        );
-      });
+    getData();
   }, []);
 
   return (
     <>
-      <h2>Mostrando los pokemons</h2>
-      {pokemons.length === 0 ? (
-        <h3>Cargando ...</h3>
-      ) : (
-        pokemons.map((el) => (
-          <Pokemon key={el.id} name={el.name} avatar={el.avatar}></Pokemon>
-        ))
-      )}
+      <div>Hola</div>
+      {
+        pokemons.length === 0 ? "CARGANDO POKEMONS" : <CardPokemon pokemons={pokemons} />
+      }
     </>
   );
-}
+};

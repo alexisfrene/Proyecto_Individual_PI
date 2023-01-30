@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const { Router } = require('express');
 
 // Importar todos los routers;
@@ -10,9 +11,12 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/" , async (req , res) => {
+
     try {
-      const result = await getAllPokemons()
-        res.status(200).send(result)
+      const result = await getAllPokemons();
+      
+        
+        res.status(200).json(result)
     } catch (error) {
         res.status(400).json(error.message)
     }

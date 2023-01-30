@@ -1,5 +1,5 @@
 import "./App.css";
-import GetPokemons from "./components/GetPokemons";
+import {GetPokemons} from "./components/GetPokemons";
 
 
 function App() {

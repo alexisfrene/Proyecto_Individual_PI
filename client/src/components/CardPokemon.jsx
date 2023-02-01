@@ -1,19 +1,15 @@
 import React from "react";
 
-export const CardPokemon = ({pokemons}) => {
-    function seeAllPokemons ( name , types , img ){
-        return "Algo"
-    }
-
+export const CardPokemon = ({ name, types, img }) => {
   return (
     <div>
-      <h1> {pokemons[0].name} </h1>
+      <h1>{name}</h1>
+      <img src={img} alt={name} />
       <h2>
-        {pokemons[0].poke_types.length !== 2
-          ? pokemons[0].poke_types[0]
-          : `Dos tipo : ${pokemons[0].poke_types[0]} y ${pokemons[0].poke_types[1]}`}
+        {types.length > 1
+          ? `Pokemon con tipos : ${types[0]} y ${types[1]}.`
+          : `Pokemon con tipo : ${types[0]}`}
       </h2>
-      <img src={pokemons[0].img} alt={pokemons[0].name} />
     </div>
   );
 };

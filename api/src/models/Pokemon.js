@@ -4,40 +4,41 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("pokemon", {
-    id:{
-      type: DataTypes.INTEGER,
-      primaryKey:true,
-      allowNull:false
-    },
+    
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique : true,
+     // unique : true,
     },
-    types: {
-      type: DataTypes.ENUM([
-        "normal",
-        "fighting",
-        "flying",
-        "poison",
-        "ground",
-        "rock",
-        "bug",
-        "ghost",
-        "steel",
-        "fire",
-        "water",
-        "grass",
-        "electric",
-        "psychic",
-        "ice",
-        "dragon",
-        "dark",
-        "fairy",
-        "unknown",
-        "shadow",
-      ]),
-      allowNull:false
+    id:{
+      type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV1,
+    primaryKey: true
+    },
+    poke_types: {
+      type: DataTypes.ARRAY(DataTypes.ENUM("normal",
+      "fighting",
+      "flying",
+      "poison",
+      "ground",
+      "rock",
+      "bug",
+      "ghost",
+      "steel",
+      "fire",
+      "water",
+      "grass",
+      "electric",
+      "psychic",
+      "ice",
+      "dragon",
+      "dark",
+      "fairy",
+      "unknown",
+      "shadow",)),
+  
+      allowNull:false,
+      //defaultValue: "normal",
     },
     hp :{
       type : DataTypes.INTEGER,
@@ -64,6 +65,10 @@ module.exports = (sequelize) => {
       type : DataTypes.INTEGER,
       allowNull:false
     },
+    img:{
+      type:DataTypes.STRING,
+      
+    }
     
-  });
+  } , {timestamps:false});
 };

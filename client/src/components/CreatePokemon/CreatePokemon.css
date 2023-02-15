@@ -1,0 +1,184 @@
+.conteiner-create {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.conteiner-create video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.form-conteiner {
+  margin-bottom: 5vh;
+  max-width: 40vw;
+  min-width: 400px;
+  height: 100%;
+  background-color: rgb(57, 57, 235);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.title-create {
+  font-size: 15%;
+  margin-bottom: 2%;
+  margin-top: 0;
+  padding-top: 2%;
+  width: 100%;
+}
+
+.imgPokemon {
+  margin-top: 0;
+  object-fit: cover;
+  height: 10.1rem;
+  width: 100%;
+}
+
+.imgCreatePokemon {
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+  width: 39%;
+}
+
+.form-conteiner span {
+  background: rgb(80,102,241);
+  background: radial-gradient(circle, rgba(80,102,241,1) 0%, rgba(40,11,230,1) 100%);
+  width: 100%;
+  display: flex;
+}
+
+.create-input-name {
+  height: 1.6rem;
+  margin-top: 0.5rem;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.parrafo-name {
+  margin-top: 0.7rem;
+}
+.create-input-img {
+  height: 1.6rem;
+  margin-top: 0.5rem;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.parrafo-img {
+  margin-top: 0.7rem;
+}
+
+.form-conteiner span p {
+  padding-left: 1.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.1rem;
+  width: 30%;
+  text-align: start;
+  font-weight: bold;
+}
+.form-conteiner span input {
+  background-color: rgb(208, 217, 226);
+  width: 50%;
+}
+.mostrar-tipos {
+  padding-top: 1rem;
+  background-color: rgb(235, 216, 13);
+  height: 1.9rem;
+  width: 7rem;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  margin-top: 1.9rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 3px inset rgb(33, 33, 233);
+  cursor: pointer;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.mostrar-tipos:hover {
+  background-color: rgb(245, 225, 8);
+  font-size: 0.95rem;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+  border: 5px ouset rgb(33, 33, 233);
+}
+
+.btn-crear-pokemon {
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: auto;
+  background-color: rgb(235, 216, 13);
+  height: 3.1rem;
+  width: 7.1rem;
+  margin: auto;
+  margin-bottom: 0.4rem;
+  margin-top: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.btn-crear-pokemon:hover {
+  background-color: rgb(245, 225, 8);
+  font-size: 1.3rem;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+  border: 5px ouset rgb(33, 33, 233);
+}
+.fixed-tipo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
+  position: fixed;
+  background-color: rgb(55, 55, 239);
+  width: 60vw;
+  height: 70vh;
+  left: 20%;
+  top: 22%;
+  font-size: 1.5rem;
+}
+
+.fixed-tipo h2 {
+  color: rgb(235, 216, 13);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.1rem;
+  width: 100%;
+  margin-top: 0.6rem;
+  height: fit-content;
+}
+
+.fixed-tipo label {
+  width: 5.1rem;
+  height: 3rem;
+  padding: 1rem;
+}
+.fixed-tipo label input {
+  width: 100%;
+}
+
+.btn-close-tipo {
+  font-size: large;
+  font-weight: bold;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: 2%;
+  left: 94.4%;
+}
+.label-imgCreate img{
+  width: 6rem;
+}
+
+.imgCreateType-shadow{
+  margin-top: 0;
+  object-fit: scale-down;
+  height: 2.5rem;
+}
+.imgCreateType-unknown{
+  object-fit: scale-down;
+  height: 2.5rem;
+  
+}

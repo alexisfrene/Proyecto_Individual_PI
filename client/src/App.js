@@ -1,26 +1,31 @@
+//Componentes propios
+import { StartPage } from "./components/layout/StartPage";
+import { GetPokemons } from "./components/Cartas/GetPokemons";
+import { CreatePokemon } from "./components/CreatePokemon/CreatePokemon";
+//Estilos
 import "./App.css";
-import {GetPokemons} from "./components/GetPokemons";
-import axios from "axios";
-import { useState , useEffect } from "react";
+//Modulos
+import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllPokemons , getTypes} from "./redux/actions/index";
 
 function App() {
-  let [pokemons, setPokemons] = useState([]);
-
-  async function getData() {
-    let res = await axios.get("http://localhost:3001/pokemons");
-    const { data } = res;
-    setPokemons((e) => data);
-  }
-
+  //Esto es para ir cargando los pokemons desde que entramos a la aplicacion
+  const dispatch = useDispatch();
   useEffect(() => {
-    getData();
+    dispatch(getAllPokemons());
+    dispatch(getTypes());
   }, []);
-
   return (
-    <div className="App">
-      <h1>Henry Pokemon</h1>
-      <GetPokemons data = {pokemons}/>
+    <div className="app-conteiner">
+      <Routes>
+      <Route path="/" element={<StartPage />} />
+      <Route path="/home" element={<GetPokemons />}></Route>
+      <Route path="/create" element={<CreatePokemon />} />
+    </Routes>
     </div>
+    
   );
 }
 

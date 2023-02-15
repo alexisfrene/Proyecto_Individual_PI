@@ -1,0 +1,72 @@
+.Card-conteiner {
+  background: rgb(63,251,230);
+  background: linear-gradient(139deg, rgba(63,251,230,1) 0%, rgba(70,153,252,1) 100%);
+  width: 15rem;
+  height: 20rem;
+  padding: 1rem;
+  border: 0.3rem solid rgb(251, 255, 0);
+  margin: 0.3rem;
+}
+.twoTypes-img img {
+  width: 6rem;
+  margin: .1rem;
+}
+.oneTypes-img{
+  width: 6rem;
+  margin: .1rem;
+}
+
+.Card-img {
+  
+  border: 0.3rem solid rgb(229, 255, 0);
+  min-width: 11rem;
+  margin-left: 1.5rem;
+  height: 9rem;
+  min-height: 7rem;
+  max-height: 9.2rem;
+  max-width: 12rem;
+  object-fit: scale-down;
+}
+
+.Card-h1 {
+  font-size: 1.8rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Card-h2 {
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Card-h3 {
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Card-h4 {
+  font-size: 0.4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-masInfo{
+  margin-top: 2rem;
+  margin-left: .8rem;
+  box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  height: 3.6rem;
+  color: rgb(255, 208, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(56, 55, 63);
+  cursor: pointer;
+}
+
+.btn-masInfo:hover{
+  box-shadow: 6px 5px 1px 1px rgba(0,0,0,0.82);
+  -webkit-box-shadow: 6px 5px 1px 1px rgba(0,0,0,0.82);
+  -moz-box-shadow: 6px 5px 1px 1px rgba(0,0,0,0.82);
+  color: rgb(245, 200, 0);
+}

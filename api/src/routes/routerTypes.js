@@ -1,12 +1,9 @@
 const { default: axios } = require("axios");
 const { Router } = require("express");
-const handlerGetTypes = require("../handlers/handlerGetTypes.js");
+const handlerPokeType = require("../handlers/handlerPokeType.js");
 
 const routerTypes = Router();
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+routerTypes.get("/types", handlerPokeType);
 
-routerTypes.get("/", handlerGetTypes);
-
-module.exports = routerTypes;
+ module.exports = routerTypes;

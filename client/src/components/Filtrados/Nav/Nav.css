@@ -1,0 +1,119 @@
+.contenedor-navigator {
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+}
+
+.conetiner-up {
+  padding-top: 9rem;
+  background-color: rgb(23, 11, 247);
+}
+
+.titlePokemon {
+  top: 2%;
+  position: absolute;
+  width: 25rem;
+  height: 7rem;
+  object-fit: cover;
+  left: 50%;
+  margin-left: -12.5rem;
+}
+.picachuInicio {
+  top: 7%;
+  position: absolute;
+  width: 20rem;
+  height: 15rem;
+  object-fit: scale-down;
+  left: 100%;
+  margin-left: -22rem;
+}
+.pokeInicio {
+  top: 7%;
+  position: absolute;
+  width: 20rem;
+  height: 15rem;
+  object-fit: scale-down;
+  left: 30%;
+  margin-left: -25rem;
+}
+.btn-inicio-nav {
+  box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  top: 1.3%;
+  left: 0.9%;
+  position: absolute;
+  width: 4rem;
+  height: 3rem;
+  color: rgb(255, 208, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(9, 9, 242);
+  cursor: pointer;
+}
+
+.btn-inicio-nav:hover {
+  width: 4.2rem;
+  height: 3.1rem;
+  color: rgb(255, 187, 0);
+  font-size: 1.1rem;
+  background-color: rgb(21, 21, 240);
+}
+.btn-create-nav a {
+  text-decoration: none;
+  color: rgb(255, 208, 0);
+}
+.btn-create-nav a:hover {
+  color: rgb(255, 187, 0);
+}
+.btn-create-nav {
+  text-decoration: none;
+  box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  top: 1.3%;
+  left: 93.5%;
+
+  position: absolute;
+  width: 4.5rem;
+  height: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(9, 9, 242);
+  cursor: pointer;
+}
+.btn-create-nav:hover {
+  width: 4.6rem;
+  height: 3.1rem;
+  font-size: 1.1rem;
+  background-color: rgb(21, 21, 240);
+}
+
+.conteiner-dow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(43, 94, 236);
+  justify-content: center;
+  margin-top: .4rem;
+}
+.conetiner-dow p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(255, 208, 0);
+  font-weight: bold;
+  padding: 0.2rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .picachuInicio {
+    display: none;
+  }
+  .pokeInicio {
+    display: none;
+  }
+  .btn-create-nav {
+    margin-left: -8%;
+  }
+}

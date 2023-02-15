@@ -1,0 +1,12 @@
+
+  .getpokemos-conteiner{
+    
+    background-color: rgb(12, 135, 197);
+    padding: .5rem;
+    margin: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+  

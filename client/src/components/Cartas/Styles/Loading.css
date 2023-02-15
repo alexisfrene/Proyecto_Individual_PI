@@ -1,0 +1,10 @@
+.loading-conteiner{
+    min-height: 100vh;
+    background-image: url("../pokemon.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-attachment: inherit;
+    text-align: center;
+}

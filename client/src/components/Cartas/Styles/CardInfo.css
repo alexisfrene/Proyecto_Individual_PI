@@ -1,0 +1,81 @@
+.btn-info {
+  background-color: rgba(17, 102, 207, 0.969);
+  height: 36rem;
+  width: 28rem;
+  border-radius: 1rem;
+  position: fixed;
+  left: 35%;
+  top: 5%;
+  bottom: 5%;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.img-detail {
+  border: 0.4rem solid rgb(232, 228, 7);
+  width: 20rem;
+  height: 15rem;
+  object-fit: contain;
+  margin-left: 3.6rem;
+  margin-top: 0.4rem;
+  min-height: 15rem;
+  min-width: 20rem;
+}
+
+.close-detail {
+  position: absolute;
+  width: 2.3rem;
+  height: 2.3rem;
+  top: 2%;
+  left: 90%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.name-detail {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
+
+.tipos-detail {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+.id-detail {
+  margin-left: 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 2rem;
+  color: rgb(255, 243, 25);
+}
+
+.stats-detail {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+.stats-detail div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stats-detail div p {
+  width: 5rem;
+}
+.stats-detail div span {
+  width: 5rem;
+  margin-left: -2rem;
+  text-align: end;
+}
+
+.tipo00 {
+  margin-left: 7.8rem;
+}

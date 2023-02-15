@@ -1,0 +1,28 @@
+.conteiner-searchbar {
+  text-align: center;
+}
+
+.conteiner-searchbar input {
+  text-align: center;
+  -webkit-border-radius: 100px 0 0 100px;
+  border-radius: 100px 0 0 100px;
+  height: 3rem;
+  background-color: rgb(255, 255, 255);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.conteiner-searchbar button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  background-color: rgb(22, 6, 249);
+  color: rgb(250, 250, 8);
+  text-align: center;
+  -webkit-border-radius: 0 100px 100px 0;
+  border-radius: 0 100px 100px 0;
+  height: 3.2rem;
+  width: 4.3rem;
+  cursor: pointer;
+}
+.conteiner-searchbar button:hover {
+  color: rgb(247, 247, 24);
+  background-color: rgb(37, 22, 248);
+}

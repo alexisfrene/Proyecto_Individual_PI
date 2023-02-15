@@ -1,0 +1,68 @@
+.btn-tipos-off {
+  box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 7px 6px 43px 4px rgba(0, 0, 0, 0.5);
+  width: 4rem;
+  height: 3rem;
+  color: rgb(255, 208, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(9, 9, 242);
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-right: .7rem;
+}
+
+.btn-tipos-off:hover {
+  color: rgb(255, 187, 0);
+  background-color: rgb(21, 21, 240);
+}
+
+.div-fixed-tipos {
+  position: fixed;
+  width: 40rem;
+  height: 30rem;
+  background-color: rgba(63, 58, 220, 0.965);
+  left: 50%;
+  top: 50%;
+  margin-left: -20rem;
+  margin-top: -15rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.div-fixed-tipos h3 {
+  width: 100%;
+  margin-top: 0.8rem;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgb(247, 217, 19);
+}
+
+.btn-close-tipos {
+  position: absolute;
+  left: 94%;
+  top: 2%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.btn-tipo {
+  color: rgb(247, 217, 19);
+  background-color: rgb(24, 8, 244);
+  width: 8rem;
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}

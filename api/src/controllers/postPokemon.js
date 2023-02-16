@@ -1,4 +1,13 @@
 const { Pokemon } = require("../db.js");
+const axios = require("axios");
+
+async function verifyName(name){
+
+ let result =  await axios(`http://localhost:3001/pokemons/?name=${name}`);
+ return result
+
+}
+
 
 module.exports = async (data) => {
   const {
@@ -13,6 +22,9 @@ module.exports = async (data) => {
     weight,
     img,
   } = data;
+
+let result = await verifyName(name);
+if(result.data.length === 0 ){
   if (
     ![
       name,
@@ -41,4 +53,10 @@ module.exports = async (data) => {
     img,
   });
   return "Pokemon Creado";
+}else{
+  return "el nombre ya esta en uso"
+}
+
+  
+
 };

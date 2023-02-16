@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import titlePokemon from "../../imgComponenets/titlePokemon.png";
 import picachuInicio from "../../imgComponenets/picachu.png";
 import pokeInicio from "../../imgComponenets/pokeIncio.png";
-export const Nav = ({ setInfo, setCantidadBotones, setVista, reset }) => {
+export const Nav = ({ setInfo, setCantidadBotones, setVista, reset , info}) => {
   return (
     <div className="contenedor-navigator">
       <div className="conetiner-up">
@@ -37,16 +37,19 @@ export const Nav = ({ setInfo, setCantidadBotones, setVista, reset }) => {
           setInfo={setInfo}
           setCantidadBotones={setCantidadBotones}
           setVista={setVista}
+          info={info}
         />
         <FiltradoABC
           setInfo={setInfo}
           setCantidadBotones={setCantidadBotones}
           setVista={setVista}
+          info={info}
         />
         <FiltradoPower
           setInfo={setInfo}
           setCantidadBotones={setCantidadBotones}
           setVista={setVista}
+          info={info}
         />
       </div>
     </div>

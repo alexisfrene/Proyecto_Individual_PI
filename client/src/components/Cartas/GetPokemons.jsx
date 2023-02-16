@@ -9,22 +9,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetSearch } from "../../redux/actions";
 import { useState } from "react";
 
+//Componente principal.
 export const GetPokemons = () => {
-  let data = useSelector((state) => state.pokemons);
-  let pokeTipes =  useSelector((state) => state.pokeTipes);
-  let busqueda = useSelector((state) => state.searchName);
   const dispatch = useDispatch();
-  const [info, setInfo] = useState([]);
-
-  const [vista, setVista] = useState(0);
+  //Estados de redux
+  const pokeTipes = useSelector((state) => state.pokeTipes);
+  const busqueda = useSelector((state) => state.searchName);
+  const data = useSelector((state) => state.pokemons);
+  //Estados locales
   const [cantidadBotones, setCantidadBotones] = useState(0);
-console.log(busqueda)
+  const [vista, setVista] = useState(0);
+  const [info, setInfo] = useState([]);
+  //Handler
   //Reset
   function handlerClick(e) {
     setInfo((e) => []);
     dispatch(resetSearch());
     setCantidadBotones(data.length);
   }
+
   return (
     <div>
       {data.length === 0 ? (
@@ -36,14 +39,19 @@ console.log(busqueda)
             setCantidadBotones={setCantidadBotones}
             setVista={setVista}
             reset={handlerClick}
+            info={info}
           />
-          <Paginacion cantidadBtn={cantidadBotones} cambiarVista={setVista} />
+          <Paginacion cantidadBtn={cantidadBotones} cambiarVista={setVista} vista={vista} />
           <div className="getpokemos-conteiner">
             {busqueda.length === 0 || Array.isArray(busqueda[0]) ? (
               info.length === 0 ? (
-                data[vista].map((e) => <CardPokemon info={e} key={e.id} pokeTipes={pokeTipes}/>)
+                data[vista].map((e) => (
+                  <CardPokemon info={e} key={e.id} pokeTipes={pokeTipes} />
+                ))
               ) : (
-                info[vista].map((e) => <CardPokemon info={e} key={e.id} pokeTipes={pokeTipes}/>)
+                info[vista].map((e) => (
+                  <CardPokemon info={e} key={e.id} pokeTipes={pokeTipes} />
+                ))
               )
             ) : (
               <CardPokemon
@@ -54,7 +62,7 @@ console.log(busqueda)
             )}
           </div>
 
-          <Paginacion cantidadBtn={cantidadBotones} cambiarVista={setVista} />
+          <Paginacion cantidadBtn={cantidadBotones} cambiarVista={setVista} vista={vista}/>
         </div>
       )}
     </div>

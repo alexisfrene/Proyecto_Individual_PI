@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
       } else {
         res
           .status(400)
-          .json({ err: `Pokemons con el id : ${id} no encontrado` });
+          .json({ err: "Pokemons no encontrado en db y api" });
       }
     }
   } catch (error) {

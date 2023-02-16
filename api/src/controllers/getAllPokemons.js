@@ -1,7 +1,7 @@
 const axios = require("axios");
 const cleanDataPokemons = require("../tools/cleanDataPokemons.js");
 module.exports = async () => {
-  return await axios("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20")
+  return await axios("https://pokeapi.co/api/v2/pokemon?offset=0&limit=40")
     .then((res) => {
       return res.data.results;
     })

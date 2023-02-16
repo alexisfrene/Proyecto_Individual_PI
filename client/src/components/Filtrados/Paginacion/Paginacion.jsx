@@ -1,25 +1,31 @@
 import { useSelector } from "react-redux";
-import "./Paginacion.css"
+import "./Paginacion.css";
 
-
-export const Paginacion = ({ cantidadBtn, cambiarVista }) => {
+export const Paginacion = ({ cantidadBtn, cambiarVista, vista }) => {
+  //Estados de redux
   let pokemos = useSelector((state) => state.pokemons);
+  //let [btnActivo, setBtnActivo] = useState(1);
   //Forma por default
   if (cantidadBtn === 0) {
+    //Si la cantidadBtn es 0 lo dejamos por default en pokemos.length
     cantidadBtn = pokemos.length;
-  };
+  }
 
+  //Funcion para generar los botones la parte "visual"
   const generatorBtn = (cantidadBtn) => {
+    //Funcion extra a hacer
     if (cantidadBtn < 10) {
       let result = [];
       for (let i = 0; i < cantidadBtn; i++) {
+        //+1 porque nunca puede ser 0 btn
         result.push(i + 1);
       }
       return result;
     }
   };
 
-  const handlerBtn = (event, e, cambiarVista) => {
+  //
+  const handlerBtn = (e, cambiarVista, btnHtml) => {
     cambiarVista(e - 1);
   };
 
@@ -46,22 +52,30 @@ export const Paginacion = ({ cantidadBtn, cambiarVista }) => {
       });
     }
   };
+
   return (
-    <div className="paginacion-conteiner">
-
-      <button onClick={(e) => handlerMayorMenor("-")}> {"<"} </button>
-      {generatorBtn(cantidadBtn).map((e) => (
-        <button
-          className={`btn-navigation_${e}`}
-          onClick={(event) => handlerBtn(event, e, cambiarVista)}
-          key={e}
-        >
-          {" "}
-          {e}{" "}
-        </button>
-      ))}
-      <button onClick={(e) => handlerMayorMenor("+")}> {">"} </button>
-
+    <div className="paginacion-conteiner" id="paginado">
+      <button onClick={() => handlerMayorMenor("-")}> {"<"} </button>
+      {generatorBtn(cantidadBtn).map((numeroBtn) =>
+        vista + 1 === numeroBtn ? (
+          <button
+            id="activo"
+            key={numeroBtn}
+            onClick={(e) => handlerBtn(numeroBtn, cambiarVista, e)}
+          >
+            {numeroBtn}
+          </button>
+        ) : (
+          <button
+            onClick={(btnHtml) => handlerBtn(numeroBtn, cambiarVista, btnHtml)}
+            key={numeroBtn}
+            className={numeroBtn}
+          >
+            {numeroBtn}
+          </button>
+        )
+      )}
+      <button onClick={() => handlerMayorMenor("+")}> {">"} </button>
     </div>
   );
 };

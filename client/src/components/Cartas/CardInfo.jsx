@@ -37,32 +37,32 @@ export const CardInfo = ({ info, close, tipesLogo }) => {
       <div className="stats-detail">
         <div>
           <p>Vida:</p>
-          <input type="range" min="1" max="160" value={hp} />
+          <input type="range" min="1" max="160"  value={hp} readOnly/>
           <span>{hp}</span>
         </div>
         <div>
           <p>Fuerza:</p>
-          <input type="range" min="1" max="160" value={strength} />
+          <input type="range" min="1" max="160" value={strength} readOnly/>
           <span>{strength}</span>
         </div>
         <div>
           <p>Defenza:</p>
-          <input type="range" min="1" max="170" value={defence} />
+          <input type="range" min="1" max="170" value={defence} readOnly/>
           <span>{defence}</span>
         </div>
         <div>
           <p>Peso:</p>
-          <input type="range" min="1" max="200" value={weight} />
+          <input type="range" min="1" max="200" value={weight} readOnly />
           <span>{weight}</span>
         </div>
         <div>
           <p>Altura:</p>
-          <input type="range" min="1" max="160" value={height} />
+          <input type="range" min="1" max="160" value={height} readOnly />
          <span>{height}</span> 
         </div>
         <div>
           <p>Velocidad:</p>
-          <input type="range" min="1" max="160" value={speed} />
+          <input type="range" min="1" max="160" value={speed} readOnly />
            <span>{speed}</span>
         </div>
       </div>

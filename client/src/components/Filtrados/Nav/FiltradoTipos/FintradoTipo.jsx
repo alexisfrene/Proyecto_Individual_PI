@@ -7,7 +7,7 @@ import {
 } from "../../../../redux/actions/index";
 import { useState } from "react";
 
-export const FintradoTipo = ({ setInfo, setCantidadBotones, setVista }) => {
+export const FintradoTipo = ({ setInfo, setCantidadBotones, setVista , info}) => {
   const [vistaTipos, setVistaTipos] = useState(false);
   //Me traigo de redux los datos necesarion pokemons y typos
   let pokeType = useSelector((state) => state.pokeTipes);
@@ -19,7 +19,9 @@ export const FintradoTipo = ({ setInfo, setCantidadBotones, setVista }) => {
     if (busqueda.length > 0) {
       dispatch(resetSearch());
     }
-    setVista((e) => 0);
+
+    //if(info.length === 0){
+      setVista((e) => 0);
     //Nombre del tipo de poquemon a filtrar
     let typePokemons = e.target.name;
 
@@ -41,6 +43,33 @@ export const FintradoTipo = ({ setInfo, setCantidadBotones, setVista }) => {
     setVistaTipos(state => false)
     setInfo((e) => arrArmado);
     setCantidadBotones((e) => arrArmado.length);
+     //}
+    //else{
+    //   setVista((e) => 0);
+    //   //Nombre del tipo de poquemon a filtrar
+    //   let typePokemons = e.target.name;
+  
+    //   //Este for es para dejar un array "liso" [[] , [] , []] ==> [{} , {}...]
+    //   let result = [];
+    //   for (let i = 0; i < info.length; i++) {
+    //     result = [...result, ...info[i]];
+    //   }
+    //   //Aca comparamos si incluye el tipo pedido por el usuario
+    //   let dataFiltrada = result.filter((e) =>
+    //     e.poke_types.includes(typePokemons)
+    //   );
+  
+    //   if (dataFiltrada.length === 0) {
+    //     return alert(`No hay pokemons de tipo : ${typePokemons}`);
+    //   }
+  
+    //   let arrArmado = handlerPokemos(cantidadDePokePorPage, dataFiltrada);
+    //   setVistaTipos(state => false)
+    //   setInfo((e) => arrArmado);
+    //   setCantidadBotones((e) => arrArmado.length);
+    // }
+
+    
   }
 
   return (

@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createPokemon, getAllPokemons } from "../../redux/actions";
-
+import axios from "axios";
 import "./CreatePokemon.css";
 import img from "../imgComponenets/titlePokemon.png";
 import imgCrear from "../imgComponenets/creatPokemonImg.png";
 import createFondo from "../imgComponenets/create-fondo.mp4";
 const defaultImg =
-  "https://w7.pngwing.com/pngs/620/521/png-transparent-poke-ball-pokemon-pokemon-rim-mobile-phones-pokemon-thumbnail.png";
-
+  "https://cdn.pixabay.com/photo/2016/08/15/00/50/pokeball-1594373_960_720.png";
 
 export const CreatePokemon = () => {
   const pokeTipes = useSelector((state) => state.pokeTipes);
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [tipeOnClose, setTipeOnClose] = useState(false);
@@ -73,66 +72,69 @@ export const CreatePokemon = () => {
     });
   }
 
-  function handlerSubmit(e) {
+  async function handlerSubmit(e) {
     e.preventDefault();
-
-    // //Validamos que esten todos los datos
-    // for (let i in pokeData) {
-    //   if (pokeData[i].length === 0) {
-    //     return alert(`FALTA DATO ${i}`);
-    //   }
-    // }
     //Dato obligatorio name
-    if (pokeData.name === "")
-      return alert("Falta proporcionar un nombre al pokemon");
-
-      for(let i of pokeData.name){
+     if (pokeData.name === "")
+        return alert("Falta proporcionar un nombre al pokemon");
+    let result = await axios(
+      `http://localhost:3001/pokemons/?name=${pokeData.name}`
+    );
+    if (result.data.length === 0) {
+      //Max 10 caracteres
+      if (pokeData.name.length > 10)
+        return alert("Max 10 caracteres en nombre");
+      //Vemos que no contenga numeros
+      for (let i of pokeData.name) {
         const pibote = Number.isInteger(Number(i));
-        if(pibote) return alert(`El nombre no debe contener numeros`)
+        if (pibote) return alert(`El nombre no debe contener numeros`);
       }
-    //Si no nos pasan una img ponemos una por defecto
-    if (pokeData.img.length === 0)
-      setPokeData({ ...pokeData, img: defaultImg });
-    //Si el usuario no nos proporciona un tipo lo ponemos por defecto en desconocido
-    if (pokeData.poke_types.length === 0)
-      setPokeData({ ...pokeData, poke_types: ["unknown"] });
-    //Aca simplemente no aseguramos que estos dataos de estadistica sean del type Number
-    const { weight, height, hp, strength, defence, speed } = pokeData;
-    let newPokemon = {
-      weight: Number(weight),
-      height: Number(height),
-      hp: Number(hp),
-      strength: Number(strength),
-      defence: Number(defence),
-      speed: Number(speed),
-      name: pokeData.name.toLowerCase(),
-      img: pokeData.img,
-      poke_types: pokeData.poke_types,
-    };
-    dispatch(createPokemon(newPokemon));
-    //Luego de despachar el pokemon vaciamos el estado
-    setPokeData({
-      name: "",
-      weight: 1,
-      poke_types: [],
-      height: 1,
-      hp: 1,
-      strength: 1,
-      defence: 1,
-      speed: 1,
-      img: "",
-    });
-    //Volvemos a pedir todos lo pokemons para que ahora se muestre el creado
-    dispatch(getAllPokemons());
-    //Avisamos al usuario que ya se creo su pokemon
-    alert(`Pokemon creado con exito : ${newPokemon.name}`);
-    //Redireccionamos al usuamos a /home
-    return navigate("/home");
+      //Si no nos pasan una img ponemos una por defecto
+      if (pokeData.img.length === 0)
+        setPokeData({ ...pokeData, img: defaultImg });
+      //Si el usuario no nos proporciona un tipo lo ponemos por defecto en desconocido
+      if (pokeData.poke_types.length === 0)
+        setPokeData({ ...pokeData, poke_types: ["unknown"] });
+      //Aca simplemente no aseguramos que estos dataos de estadistica sean del type Number
+      const { weight, height, hp, strength, defence, speed } = pokeData;
+      let newPokemon = {
+        weight: Number(weight),
+        height: Number(height),
+        hp: Number(hp),
+        strength: Number(strength),
+        defence: Number(defence),
+        speed: Number(speed),
+        name: pokeData.name.toLowerCase(),
+        img: pokeData.img,
+        poke_types: pokeData.poke_types,
+      };
+      dispatch(createPokemon(newPokemon));
+
+      //Luego de despachar el pokemon vaciamos el estado
+      setPokeData({
+        name: "",
+        weight: 1,
+        poke_types: [],
+        height: 1,
+        hp: 1,
+        strength: 1,
+        defence: 1,
+        speed: 1,
+        img: "",
+      });
+      //Volvemos a pedir todos lo pokemons para que ahora se muestre el creado
+      dispatch(getAllPokemons());
+      //Avisamos al usuario que ya se creo su pokemon
+      alert(`Pokemon creado con exito : ${newPokemon.name}`);
+      //Redireccionamos al usuamos a /home
+      return navigate("/home");
+    } else {
+      return alert(`El nombre : ${pokeData.name} , ya se encuentra en uso`);
+    }
   }
 
   return (
     <center className="conteiner-create">
-      
       <video src={createFondo} autoPlay={true} muted={true} loop={true} />
       <form className="form-conteiner" onSubmit={(e) => handlerSubmit(e)}>
         <div className="title-create">
@@ -255,14 +257,19 @@ export const CreatePokemon = () => {
                 ? "Cargando..."
                 : pokeTipes.map((e) => (
                     <label key={e.id} className="label-imgCreate">
-                      {<img  className={`imgCreateType-${e.name}`} src={e.typeImg} alt="tiposPoke" />}
+                      {
+                        <img
+                          className={`imgCreateType-${e.name}`}
+                          src={e.typeImg}
+                          alt="tiposPoke"
+                        />
+                      }
                       <input
                         type="checkbox"
                         onClick={(e) => handlerCheckBox(e)}
                         name={e.name}
                         className="input-checkbox"
                       />
-                  
                     </label>
                   ))}
             </div>

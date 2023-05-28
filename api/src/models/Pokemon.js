@@ -74,6 +74,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      comentario: {
+        type: DataTypes.STRING,
+        
+      },
     },
     { timestamps: false }
   );

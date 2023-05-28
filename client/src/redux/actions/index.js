@@ -42,7 +42,7 @@ export const searchPokemonForName = (name) => async (dispatch) => {
   if (Number(name)) {
     return await axios(`http://localhost:3001/pokemons/${name}`).then((e) => {
       const { data } = e;
-      console.log(data)
+      //console.log(data)
       if(Array.isArray(data)) alert(`No se encontro el pokemon con el ID: ${name}`)
       return dispatch({
         type: SEARCH_POKEMON_NAME,

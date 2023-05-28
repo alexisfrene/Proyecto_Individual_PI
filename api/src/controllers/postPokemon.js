@@ -21,6 +21,7 @@ module.exports = async (data) => {
     height,
     weight,
     img,
+    comentario
   } = data;
 
 let result = await verifyName(name);
@@ -40,6 +41,7 @@ if(result.data.length === 0 ){
   )
     throw new Error("Faltan datos papurri");
 
+    
   await Pokemon.create({
     id,
     name,
@@ -51,6 +53,7 @@ if(result.data.length === 0 ){
     height,
     weight,
     img,
+    comentario
   });
   return "Pokemon Creado";
 }else{
